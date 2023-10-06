@@ -296,7 +296,7 @@ RegisterNetEvent("qb-garages:client:VehicleList", function(data)
                         }
                     }
                 else
-                    -- 
+                    --
                     local txt = Lang:t('menu.text.garage', { value = v.state, value2 = currentFuel, value3 = enginePercent, value4 = bodyPercent })
                     local menuHeader = Lang:t('menu.header.garage', { value = vname, value2 = v.plate })
                     if vname == nil then
@@ -450,6 +450,10 @@ end)
 
 RegisterNetEvent('qb-garages:client:addHouseGarage', function(house, garageInfo)
     Config.HouseGarages[house] = garageInfo
+end)
+
+RegisterNetEvent('qb-garages:client:removeHouseGarage', function(house)
+    Config.HouseGarages[house] = nil
 end)
 
 AddEventHandler('QBCore:Client:OnPlayerLoaded', function()
